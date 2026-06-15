@@ -120,11 +120,13 @@ petal.style.zIndex="999";
 document.body.appendChild(petal);
 
 let pos=-50;
-
+let rotation=0;
 const fall=setInterval(()=>{
 
 pos+=3;
+rotation+=2;
 
+petal.style.transform=`rotate(${rotation}deg)`;
 petal.style.top=pos+"px";
 
 if(pos>window.innerHeight){

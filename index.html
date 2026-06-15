@@ -6,6 +6,8 @@
 <title>Para Anahí</title>
 
 <style>
+
+/* 🌹 CANVAS CORAZÓN */
 #heartCanvas{
 position:fixed;
 top:0;
@@ -15,6 +17,18 @@ height:100%;
 z-index:1;
 pointer-events:none;
 }
+
+/* 🌹 CANVAS ROSA */
+#roseCanvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:1;
+pointer-events:none;
+}
+
 body{
 margin:0;
 height:100vh;
@@ -27,7 +41,7 @@ font-family:Georgia,serif;
 color:white;
 text-align:center;
 }
-<canvas id="heartCanvas"></canvas>
+
 .stars{
 position:absolute;
 width:100%;
@@ -35,6 +49,7 @@ height:100%;
 background:url('https://i.imgur.com/YKY28eT.png');
 animation:moveStars 120s linear infinite;
 opacity:0.7;
+z-index:0;
 }
 
 @keyframes moveStars{
@@ -80,12 +95,20 @@ text-align:center;
 </style>
 
 </head>
+
 <body>
 
+<!-- 🌌 FONDO -->
 <div class="stars"></div>
 
+<!-- 💖 CANVAS CORAZÓN -->
+<canvas id="heartCanvas"></canvas>
+
+<!-- 🌹 CANVAS ROSA -->
+<canvas id="roseCanvas"></canvas>
+
 <div class="content">
-    
+
 <h1 id="title">💫 For E. Anahí ✨</h1>
 
 <div class="quote" id="quote">    
@@ -93,12 +116,12 @@ The stars were already there.<br>
 I just found one later - you.
 </div>
 
-<button id="touchButton" onclick="showMessage()"> Touch Here 🫆 </button>
+<button id="touchButton" onclick="showMessage()">Touch Here 🫆</button>
 
 <div id="message">
 
 <span style="font-family:'Times New Roman', serif; font-size:60px;">
- ♡ Happy Birthday Anahí 💫💐✨
+♡ Happy Birthday Anahí 💫💐✨
 </span>
 
 <br><br>
@@ -108,18 +131,13 @@ I just found one later - you.
 </button>
 
 <div id="secretText" style="display:none; margin-top:20px;">
-Ya te lo había dicho antes, pero hoy, por ser un día especial, tengo que decirlo de nuevo.<br><br>
 
-Incluso antes de conocerte, había algo en ti que me transmitía una sensación difícil de explicar. Tal vez era esa buena vibra que siempre pareces llevar contigo, o quizás eran tus hermosos ojos y tu sonrisa encantadora, que no me dejaron tranquilo desde el primer momento.<br><br>
+Ya te lo había dicho antes...<br><br>
 
-Pero con el tiempo entendí que no era solo eso. Lo verdaderamente especial fue descubrir la persona que hay detrás de esa sonrisa: tu forma de ser, tu manera de ver la vida, tu corazón y la luz que llevas contigo.<br><br>
+Entre todas las casualidades del universo, conocerte fue la más bonita.<br><br>
 
-Entre todas las casualidades que pueden ocurrir en una vida, conocerte ha sido una de las más bonitas. Y si hay algo por lo que me siento afortunado hoy, es por haber coincidido contigo en este inmenso universo lleno de personas.<br><br>
+Feliz cumpleaños, Anahí 💖
 
-Feliz cumpleaños, Anahí. Nunca olvides lo especial que eres para quienes tienen la suerte de conocerte.<br><br>
-
-
-    
 </div>
 
 </div>
@@ -128,84 +146,10 @@ Feliz cumpleaños, Anahí. Nunca olvides lo especial que eres para quienes tiene
 
 <script>
 
-function createPetal(){
-
-const flower=Math.random()<0.7 ? "petal.png" : "rose.jpg";
-
-const petal=document.createElement("img");
-
-petal.src=flower;
-
-petal.style.position="fixed";
-petal.style.left=Math.random()*window.innerWidth+"px";
-petal.style.top="-50px";
-
-if(flower==="petal.png"){
-    petal.style.width="35px";
-}else{
-    petal.style.width="50px";
-}
-
-petal.style.pointerEvents="none";
-petal.style.zIndex="999";
-
-document.body.appendChild(petal);
-
-let pos=-50;
-let rotation=0;
-const fall=setInterval(()=>{
-
-pos+=3;
-rotation+=2;
-
-petal.style.transform=`rotate(${rotation}deg)`;
-petal.style.top=pos+"px";
-
-if(pos>window.innerHeight){
-
-clearInterval(fall);
-petal.remove();
-
-}
-
-},20);
-
-}
-
-function showMessage(){
-
-document.getElementById("message").style.display="block";
-
-document.getElementById("quote").style.display="none";
-
-document.getElementById("touchButton").style.display="none";
-    
-document.getElementById("title").style.display="none";
-
-for(let i=0;i<50;i++){
-
-setTimeout(createPetal,i*200);
-
-}
-
-}
-function secretMessage(){
-
-const password = prompt("Enter the password");
-
-if(password === "Mushu"){
-
-document.getElementById("secretText").style.display = "block";
-
-}else{
-
-alert("Wrong password 🌹");
-
-}
-
-}
-</script>
-    const canvas = document.getElementById("heartCanvas");
+/* =========================
+💖 CORAZÓN ANIMADO
+========================= */
+const canvas = document.getElementById("heartCanvas");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
@@ -214,6 +158,7 @@ canvas.height = window.innerHeight;
 let t = 0;
 
 function drawHeart(){
+
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
 for(let i = 0; i < 100; i++){
@@ -227,43 +172,32 @@ let py = canvas.height/2 + y * 15;
 
 ctx.fillStyle = "#ff2d55";
 ctx.fillRect(px, py, 2, 2);
-
 }
 
 t += 0.05;
-
 requestAnimationFrame(drawHeart);
 }
 
 drawHeart();
-    <canvas id="roseCanvas"></canvas>
-    #roseCanvas{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:1;
-pointer-events:none;
-}
-    const roseCanvas = document.getElementById("roseCanvas");
+
+
+/* =========================
+🌹 ROSA ANIMADA
+========================= */
+const roseCanvas = document.getElementById("roseCanvas");
 const rctx = roseCanvas.getContext("2d");
 
 roseCanvas.width = window.innerWidth;
 roseCanvas.height = window.innerHeight;
 
-let theta = 0;
-
 function drawRose(){
 
-let k = 5; // número de pétalos
+let k = 5;
 
-let r = 0;
+for(let i = 0; i < 1000; i++){
 
-for(let i = 0; i < 800; i++){
-
-theta = i * 0.01;
-r = 150 * Math.cos(k * theta);
+let theta = i * 0.01;
+let r = 150 * Math.cos(k * theta);
 
 let x = r * Math.cos(theta);
 let y = r * Math.sin(theta);
@@ -273,13 +207,77 @@ let py = roseCanvas.height/2 + y;
 
 rctx.fillStyle = "#ff4da6";
 rctx.fillRect(px, py, 2, 2);
-
 }
-
 }
 
 drawRose();
-    
+
+
+/* =========================
+🌹 PETALOS
+========================= */
+function createPetal(){
+
+const petal = document.createElement("div");
+
+petal.innerHTML = "🌹";
+petal.style.position = "fixed";
+petal.style.left = Math.random()*window.innerWidth+"px";
+petal.style.top = "-50px";
+petal.style.fontSize = "20px";
+petal.style.zIndex = "999";
+
+document.body.appendChild(petal);
+
+let pos = -50;
+
+let fall = setInterval(()=>{
+
+pos += 3;
+petal.style.top = pos+"px";
+
+if(pos > window.innerHeight){
+clearInterval(fall);
+petal.remove();
+}
+
+},20);
+}
+
+
+/* =========================
+BOTÓN PRINCIPAL
+========================= */
+function showMessage(){
+
+document.getElementById("message").style.display="block";
+document.getElementById("quote").style.display="none";
+document.getElementById("touchButton").style.display="none";
+document.getElementById("title").style.display="none";
+
+for(let i=0;i<50;i++){
+setTimeout(createPetal,i*150);
+}
+
+}
+
+
+/* =========================
+🔑 MENSAJE SECRETO
+========================= */
+function secretMessage(){
+
+const password = prompt("Enter password");
+
+if(password === "Mushu"){
+document.getElementById("secretText").style.display="block";
+}else{
+alert("Wrong password 🌹");
+}
+
+}
+
+</script>
 
 </body>
 </html>

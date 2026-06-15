@@ -14,10 +14,9 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-z-index:1;
+z-index:3;
 pointer-events:none;
 }
-
 body{
 margin:0;
 height:100vh;
@@ -183,30 +182,47 @@ roseCanvas.height/2 + y2 + offsetY,
 ========================= */
 function createPetal(){
 
-const petal = document.createElement("div");
+const flower = Math.random() < 0.5 ? "petal.png" : "rose.jpg";
 
-petal.innerHTML = "🌹";
+const petal = document.createElement("img");
+
+petal.src = flower;
+
 petal.style.position = "fixed";
-petal.style.left = Math.random()*window.innerWidth+"px";
+petal.style.left = Math.random()*window.innerWidth + "px";
 petal.style.top = "-50px";
-petal.style.fontSize = "20px";
+
+if(flower === "petal.png"){
+    petal.style.width = "35px";
+}else{
+    petal.style.width = "50px";
+}
+
 petal.style.zIndex = "999";
+petal.style.pointerEvents = "none";
 
 document.body.appendChild(petal);
 
 let pos = -50;
+let rotation = 0;
 
 let fall = setInterval(()=>{
 
 pos += 3;
-petal.style.top = pos+"px";
+rotation += 2;
+
+petal.style.top = pos + "px";
+petal.style.transform = `rotate(${rotation}deg)`;
 
 if(pos > window.innerHeight){
+
 clearInterval(fall);
 petal.remove();
+
 }
 
 },20);
+
 }
 
 /* =========================
@@ -234,16 +250,20 @@ const password = prompt("Enter password");
 
 if(password === "Mushu"){
 
-document.getElementById("secretText").style.display="block";
+document.getElementById("secretText").style.display = "block";
 
-/* ❗ OCULTAR BOTÓN */
-document.getElementById("secretBtn").style.display="none";
+document.getElementById("secretBtn").style.display = "none";
 
-/* 🌹 aparece la rosa */
 drawRose();
 
+for(let i=0;i<80;i++){
+setTimeout(createPetal,i*120);
+}
+
 }else{
+
 alert("Wrong password 🌹");
+
 }
 
 }

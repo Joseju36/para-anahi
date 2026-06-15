@@ -80,15 +80,14 @@ font-size:1.3em;
 <h1>✨ Para Anahí ✨</h1>
 
 <div class="quote">
-The stars were already there,<br>
+The stars were already there.<br>
 I just found one later.
 </div>
 
 <button onclick="showMessage()">🌹 Touch Here 🌹</button>
 
 <div id="message">
-✨ Happy Birthday Anahí ✨ <br><br>
-You are more special than you know.
+✨ Happy Birthday Anahí ✨
 </div>
 
 </div>
@@ -96,8 +95,6 @@ You are more special than you know.
 <script>
 
 function createPetal(){
-
-const petal=document.createElement("div");
 
 const petal=document.createElement("img");
 
@@ -107,14 +104,9 @@ petal.style.position="fixed";
 petal.style.left=Math.random()*window.innerWidth+"px";
 petal.style.top="-50px";
 petal.style.width="35px";
-petal.style.zIndex="999";
-  
-petal.style.position="fixed";
-petal.style.left=Math.random()*window.innerWidth+"px";
-petal.style.top="-50px";
-petal.style.fontSize=(20+Math.random()*20)+"px";
-petal.style.zIndex="999";
 petal.style.pointerEvents="none";
+petal.style.zIndex="999";
+
 document.body.appendChild(petal);
 
 let pos=-50;
@@ -126,8 +118,10 @@ pos+=3;
 petal.style.top=pos+"px";
 
 if(pos>window.innerHeight){
+
 clearInterval(fall);
 petal.remove();
+
 }
 
 },20);

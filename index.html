@@ -79,12 +79,12 @@ font-size:1.3em;
 
 <h1> 💫 For E. Anahí ✨</h1>
 
-<div class="quote">
+<div class="quote" id="quote">    
 The stars were already there.<br>
 I just found one later - you.
 </div>
 
-<button onclick="showMessage()"> Touch Here 🫆 </button>
+<button id="touchButton" onclick="showMessage()"> Touch Here 🫆 </button>
 
 <div id="message">
 <span style="font-family:'Times New Roman', serif; font-size:60px;">
@@ -143,6 +143,10 @@ petal.remove();
 function showMessage(){
 
 document.getElementById("message").style.display="block";
+
+document.getElementById("quote").style.display="none";
+
+document.getElementById("touchButton").style.display="none";
 
 for(let i=0;i<50;i++){
 

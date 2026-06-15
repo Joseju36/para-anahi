@@ -112,22 +112,9 @@ I just found one later - you.
 
 <br><br>
 
-function secretMessage(){
-
-const password = prompt("Enter password");
-
-if(password === "Mushu"){
-
-document.getElementById("secretText").style.display="block";
-
-/* 🌹 solo aparece una vez */
-drawRose();
-
-}else{
-alert("Wrong password 🌹");
-}
-
-}
+<button onclick="secretMessage()">
+🌹 Secret Message
+</button>
 
 <div id="secretText" style="display:none; margin-top:20px;">
 
@@ -146,7 +133,7 @@ Feliz cumpleaños, Anahí 💖
 <script>
 
 /* =========================
-🌹 ROSA ANIMADA (SOLO DIBUJO)
+🌹 ROSA
 ========================= */
 const roseCanvas = document.getElementById("roseCanvas");
 const rctx = roseCanvas.getContext("2d");
@@ -156,13 +143,6 @@ roseCanvas.height = window.innerHeight;
 
 function drawRose(){
 
-const roseCanvas = document.getElementById("roseCanvas");
-const rctx = roseCanvas.getContext("2d");
-
-roseCanvas.width = window.innerWidth;
-roseCanvas.height = window.innerHeight;
-
-/* limpia antes de dibujar */
 rctx.clearRect(0,0,roseCanvas.width,roseCanvas.height);
 
 let k = 5;
@@ -171,22 +151,16 @@ for(let i = 0; i < 2500; i++){
 
 let theta = i * 0.01;
 
-/* 🌹 ROSA GRANDE EXTERIOR */
 let r1 = 260 * Math.cos(k * theta);
-
 let x1 = r1 * Math.cos(theta);
 let y1 = r1 * Math.sin(theta);
 
-/* 🌹 ROSA INTERIOR (EFECTO DOBLE) */
 let r2 = 180 * Math.cos(k * theta);
-
 let x2 = r2 * Math.cos(theta);
 let y2 = r2 * Math.sin(theta);
 
-/* mover un poco hacia arriba */
 let offsetY = -100;
 
-/* exterior */
 rctx.fillStyle = "#ff4da6";
 rctx.fillRect(
 roseCanvas.width/2 + x1,
@@ -194,7 +168,6 @@ roseCanvas.height/2 + y1 + offsetY,
 3,3
 );
 
-/* interior más brillante */
 rctx.fillStyle = "#ff99cc";
 rctx.fillRect(
 roseCanvas.width/2 + x2,
@@ -236,7 +209,6 @@ petal.remove();
 },20);
 }
 
-
 /* =========================
 BOTÓN PRINCIPAL
 ========================= */
@@ -253,7 +225,6 @@ setTimeout(createPetal,i*150);
 
 }
 
-
 /* =========================
 🔑 MENSAJE SECRETO
 ========================= */
@@ -265,7 +236,7 @@ if(password === "Mushu"){
 
 document.getElementById("secretText").style.display="block";
 
-/* 🌹 AQUÍ APARECE LA ROSA */
+/* 🌹 aparece la rosa */
 drawRose();
 
 }else{
@@ -277,5 +248,4 @@ alert("Wrong password 🌹");
 </script>
 
 </body>
-</html>
 </html>

@@ -87,7 +87,7 @@ I just found one later.
 <button onclick="showMessage()">🌹 Touch Here 🌹</button>
 
 <div id="message">
-❤️ Happy Birthday Anahí ❤️<br><br>
+✨ Happy Birthday Anahí ✨ <br><br>
 You are more special than you know.
 </div>
 
@@ -95,8 +95,47 @@ You are more special than you know.
 
 <script>
 
+function createPetal(){
+
+const petal=document.createElement("div");
+
+petal.innerHTML="🌹";
+
+petal.style.position="fixed";
+petal.style.left=Math.random()*window.innerWidth+"px";
+petal.style.top="-50px";
+petal.style.fontSize=(20+Math.random()*20)+"px";
+petal.style.zIndex="999";
+
+document.body.appendChild(petal);
+
+let pos=-50;
+
+const fall=setInterval(()=>{
+
+pos+=3;
+
+petal.style.top=pos+"px";
+
+if(pos>window.innerHeight){
+clearInterval(fall);
+petal.remove();
+}
+
+},20);
+
+}
+
 function showMessage(){
+
 document.getElementById("message").style.display="block";
+
+for(let i=0;i<50;i++){
+
+setTimeout(createPetal,i*200);
+
+}
+
 }
 
 </script>

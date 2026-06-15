@@ -99,14 +99,22 @@ function createPetal(){
 
 const petal=document.createElement("div");
 
-petal.innerHTML="🌹";
+const petal=document.createElement("img");
 
+petal.src="petal.png";
+
+petal.style.position="fixed";
+petal.style.left=Math.random()*window.innerWidth+"px";
+petal.style.top="-50px";
+petal.style.width="35px";
+petal.style.zIndex="999";
+  
 petal.style.position="fixed";
 petal.style.left=Math.random()*window.innerWidth+"px";
 petal.style.top="-50px";
 petal.style.fontSize=(20+Math.random()*20)+"px";
 petal.style.zIndex="999";
-
+petal.style.pointerEvents="none";
 document.body.appendChild(petal);
 
 let pos=-50;

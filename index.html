@@ -112,7 +112,7 @@ I just found one later - you.
 
 <br><br>
 
-<button onclick="secretMessage()">
+<button id="secretBtn" onclick="secretMessage()">
 🌹 Secret Message
 </button>
 
@@ -235,6 +235,9 @@ const password = prompt("Enter password");
 if(password === "Mushu"){
 
 document.getElementById("secretText").style.display="block";
+
+/* ❗ OCULTAR BOTÓN */
+document.getElementById("secretBtn").style.display="none";
 
 /* 🌹 aparece la rosa */
 drawRose();

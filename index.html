@@ -87,7 +87,7 @@ I just found one later - you.
 <button onclick="showMessage()"> Touch Here 🫆 </button>
 
 <div id="message">
-✨♡ Happy Birthday Anahí 💐✨
+✨♡ Happy Birthday Anahí 💐💐✨
 </div>
 
 </div>
@@ -96,14 +96,22 @@ I just found one later - you.
 
 function createPetal(){
 
+const flower=Math.random()<0.7 ? "petal.png" : "rose.jpg";
+
 const petal=document.createElement("img");
 
-petal.src="petal.png";
+petal.src=flower;
 
 petal.style.position="fixed";
 petal.style.left=Math.random()*window.innerWidth+"px";
 petal.style.top="-50px";
-petal.style.width="35px";
+
+if(flower==="petal.png"){
+    petal.style.width="35px";
+}else{
+    petal.style.width="50px";
+}
+
 petal.style.pointerEvents="none";
 petal.style.zIndex="999";
 

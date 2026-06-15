@@ -112,9 +112,22 @@ I just found one later - you.
 
 <br><br>
 
-<button onclick="secretMessage()">
-🌹 Secret Message
-</button>
+function secretMessage(){
+
+const password = prompt("Enter password");
+
+if(password === "Mushu"){
+
+document.getElementById("secretText").style.display="block";
+
+/* 🌹 solo aparece una vez */
+drawRose();
+
+}else{
+alert("Wrong password 🌹");
+}
+
+}
 
 <div id="secretText" style="display:none; margin-top:20px;">
 
@@ -143,21 +156,52 @@ roseCanvas.height = window.innerHeight;
 
 function drawRose(){
 
+const roseCanvas = document.getElementById("roseCanvas");
+const rctx = roseCanvas.getContext("2d");
+
+roseCanvas.width = window.innerWidth;
+roseCanvas.height = window.innerHeight;
+
+/* limpia antes de dibujar */
+rctx.clearRect(0,0,roseCanvas.width,roseCanvas.height);
+
 let k = 5;
 
-for(let i = 0; i < 1500; i++){
+for(let i = 0; i < 2500; i++){
 
 let theta = i * 0.01;
-let r = 220 * Math.cos(k * theta); /* MÁS GRANDE */
 
-let x = r * Math.cos(theta);
-let y = r * Math.sin(theta);
+/* 🌹 ROSA GRANDE EXTERIOR */
+let r1 = 260 * Math.cos(k * theta);
 
-let px = roseCanvas.width/2 + x;
-let py = roseCanvas.height/2 + y;
+let x1 = r1 * Math.cos(theta);
+let y1 = r1 * Math.sin(theta);
 
+/* 🌹 ROSA INTERIOR (EFECTO DOBLE) */
+let r2 = 180 * Math.cos(k * theta);
+
+let x2 = r2 * Math.cos(theta);
+let y2 = r2 * Math.sin(theta);
+
+/* mover un poco hacia arriba */
+let offsetY = -100;
+
+/* exterior */
 rctx.fillStyle = "#ff4da6";
-rctx.fillRect(px, py, 3, 3); /* MÁS GRUESA */
+rctx.fillRect(
+roseCanvas.width/2 + x1,
+roseCanvas.height/2 + y1 + offsetY,
+3,3
+);
+
+/* interior más brillante */
+rctx.fillStyle = "#ff99cc";
+rctx.fillRect(
+roseCanvas.width/2 + x2,
+roseCanvas.height/2 + y2 + offsetY,
+2,2
+);
+
 }
 }
 

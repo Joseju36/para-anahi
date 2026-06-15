@@ -100,7 +100,7 @@ I just found one later - you.
 </button>
 
 <div id="secretText" style="display:none; margin-top:20px;">
-Your secret message will go here.
+Only you can read this message ✨
 </div>
 
 </div>
@@ -170,7 +170,21 @@ setTimeout(createPetal,i*200);
 }
 
 }
+function secretMessage(){
 
+const password = prompt("Enter the password");
+
+if(password === "Mushu"){
+
+document.getElementById("secretText").style.display = "block";
+
+}else{
+
+alert("Wrong password 🌹");
+
+}
+
+}
 </script>
 
 </body>

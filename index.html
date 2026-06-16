@@ -110,7 +110,8 @@ style="
 font-family:'Times New Roman', serif;
 font-size:60px;
 white-space:nowrap;
-transition:all 6s ease;
+
+    
 ">
 ♡ Happy Birthday Anahí 💫✨
 </div>
@@ -172,16 +173,28 @@ secret.style.display = "none";
 
 /* Subir Happy Birthday */
 const title =
+
 document.getElementById("birthdayTitle");
 
-title.style.position = "relative";
-title.style.transition = "all 5s ease";
+title.animate(
 
-setTimeout(()=>{
+[
 
-title.style.transform = "translateY(-100px)";
+{ transform: "translateY(0px)" },
 
-},200);
+{ transform: "translateY(-70px)" }
+
+],
+
+{
+
+duration: 4000,
+
+fill: "forwards"
+
+}
+
+);
     
     const flowerText =
 document.getElementById("flowerText");

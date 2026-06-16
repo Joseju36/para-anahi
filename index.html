@@ -139,7 +139,12 @@ const flower = document.getElementById("magicFlower");
 flower.style.display = "block";
 
 setTimeout(()=>{
+
 flower.style.opacity = "1";
+
+flower.style.transform =
+"translate(-50%,-50%) scale(1)";
+
 },100);
 
 }
@@ -307,12 +312,13 @@ display:none;
 position:fixed;
 left:50%;
 top:50%;
-transform:translate(-50%,-50%);
-width:350px;
+transform:translate(-50%,-50%) scale(0.2);
+width:420px;
 opacity:0;
 z-index:1;
 pointer-events:none;
-transition:opacity 4s ease;
+transition:all 5s ease;
+filter:drop-shadow(0 0 20px rgba(255,255,200,0.8));
 ">
 
 

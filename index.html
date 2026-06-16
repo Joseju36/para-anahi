@@ -254,8 +254,7 @@ document.getElementById("secretText").style.display = "block";
 
 document.getElementById("secretBtn").style.display = "none";
 
-drawRose();
-
+setTimeout(drawRose, 6000);
 for(let i=0;i<80;i++){
 setTimeout(createPetal,i*120);
 }

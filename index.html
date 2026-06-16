@@ -166,9 +166,15 @@ document.getElementById("birthdayTitle");
 
 title.style.position = "fixed";
 title.style.left = "50%";
-title.style.top = "12%";
-title.style.transform = "translateX(-50%)";
+title.style.top = "50%";
+title.style.transform = "translate(-50%,-50%)";
 title.style.zIndex = "10";
+
+setTimeout(()=>{
+
+title.style.top = "12%";
+
+},200);
     const flowerText =
 document.getElementById("flowerText");
 

@@ -105,7 +105,8 @@ I just found one later - you.
 
 <div id="message">
 
-<span style="font-family:'Times New Roman', serif; font-size:60px;">
+<span id="birthdayTitle"
+style="font-family:'Times New Roman', serif; font-size:60px;">
 ♡ Happy Birthday Anahí 💫✨
 </span>
 
@@ -116,7 +117,12 @@ I just found one later - you.
 🌹 Secret Message
 </button>
 
-<div id="secretText" style="display:none; margin-top:20px;">
+<div id="secretText"
+style="
+display:none;
+margin-top:20px;
+transition:opacity 2s ease;
+">
 
 Ya te lo había dicho antes...<br><br>
 
@@ -147,17 +153,29 @@ flower.style.transform =
 
 },100);
 
+/* Esperar un poco después de aparecer */
 setTimeout(()=>{
 
-const text = document.getElementById("flowerText");
+/* Ocultar mensaje */
+const secret = document.getElementById("secretText");
 
-text.style.display = "block";
+secret.style.opacity = "0";
 
 setTimeout(()=>{
-text.style.opacity = "1";
-},100);
+secret.style.display = "none";
+},2000);
 
-},2500);
+/* Subir Happy Birthday */
+const title =
+document.getElementById("birthdayTitle");
+
+title.style.position = "fixed";
+title.style.left = "50%";
+title.style.top = "12%";
+title.style.transform = "translateX(-50%)";
+title.style.zIndex = "10";
+
+},5000);
 
 }
 

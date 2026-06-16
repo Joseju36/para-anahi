@@ -144,39 +144,57 @@ function drawRose(){
 
 rctx.clearRect(0,0,roseCanvas.width,roseCanvas.height);
 
-let k = 5;
+let i = 0;
 
-for(let i = 0; i < 2500; i++){
+const animation = setInterval(()=>{
 
-let theta = i * 0.01;
+for(let n=0;n<30;n++){
 
-let r1 = 260 * Math.cos(k * theta);
-let x1 = r1 * Math.cos(theta);
-let y1 = r1 * Math.sin(theta);
+let theta = i * 0.04;
 
-let r2 = 180 * Math.cos(k * theta);
-let x2 = r2 * Math.cos(theta);
-let y2 = r2 * Math.sin(theta);
+let r = 220 * Math.cos(4 * theta);
 
-let offsetY = -100;
+let x = r * Math.cos(theta);
+let y = r * Math.sin(theta);
 
-rctx.fillStyle = "#ff4da6";
-rctx.fillRect(
-roseCanvas.width/2 + x1,
-roseCanvas.height/2 + y1 + offsetY,
-3,3
+let offsetY = -80;
+
+const colors = [
+"#ffd700",
+"#fff176",
+"#64b5f6",
+"#42a5f5",
+"#90caf9"
+];
+
+rctx.fillStyle =
+colors[Math.floor(Math.random()*colors.length)];
+
+rctx.beginPath();
+
+rctx.arc(
+roseCanvas.width/2 + x,
+roseCanvas.height/2 + y + offsetY,
+3,
+0,
+Math.PI*2
 );
 
-rctx.fillStyle = "#ff99cc";
-rctx.fillRect(
-roseCanvas.width/2 + x2,
-roseCanvas.height/2 + y2 + offsetY,
-2,2
-);
+rctx.fill();
+
+i++;
 
 }
+
+if(i > 2500){
+
+clearInterval(animation);
+
 }
 
+},20);
+
+}
 /* =========================
 🌹 PETALOS
 ========================= */

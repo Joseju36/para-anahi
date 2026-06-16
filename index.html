@@ -147,6 +147,18 @@ flower.style.transform =
 
 },100);
 
+setTimeout(()=>{
+
+const text = document.getElementById("flowerText");
+
+text.style.display = "block";
+
+setTimeout(()=>{
+text.style.opacity = "1";
+},100);
+
+},2500);
+
 }
 
 /* =========================
@@ -320,7 +332,27 @@ pointer-events:none;
 transition:all 5s ease;
 filter:drop-shadow(0 0 20px rgba(255,255,200,0.8));
 ">
-
+<div id="flowerText"
+style="
+display:none;
+position:fixed;
+left:50%;
+top:78%;
+transform:translateX(-50%);
+color:white;
+font-size:20px;
+max-width:600px;
+text-align:center;
+opacity:0;
+transition:opacity 3s ease;
+z-index:2;
+">
+Because I can't give them to you in person,
+I'm giving them to you here.
+You deserve them for your beautiful smile,
+your beautiful eyes,
+and for being one of the most wonderful coincidences life gave me. 🌹✨
+</div>
 
 </body>
 </html>

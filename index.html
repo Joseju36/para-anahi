@@ -174,17 +174,15 @@ secret.style.display = "none";
 const title =
 document.getElementById("birthdayTitle");
 
-title.style.position = "fixed";
-title.style.left = "50%";
-title.style.top = "50%";
-title.style.transform = "translate(-50%,-50%)";
-title.style.zIndex = "10";
+title.style.position = "relative";
+title.style.transition = "all 5s ease";
 
 setTimeout(()=>{
 
-title.style.top = "3%";
+title.style.transform = "translateY(-80px)";
 
 },200);
+    
     const flowerText =
 document.getElementById("flowerText");
 

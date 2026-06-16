@@ -106,7 +106,11 @@ I just found one later - you.
 <div id="message">
 
 <span id="birthdayTitle"
-style="font-family:'Times New Roman', serif; font-size:60px;">
+style="
+font-family:'Times New Roman', serif;
+font-size:60px;
+white-space:nowrap;
+">
 ♡ Happy Birthday Anahí 💫✨
 </span>
 
@@ -174,6 +178,14 @@ title.style.left = "50%";
 title.style.top = "12%";
 title.style.transform = "translateX(-50%)";
 title.style.zIndex = "10";
+    const flowerText =
+document.getElementById("flowerText");
+
+flowerText.style.display = "block";
+
+setTimeout(()=>{
+flowerText.style.opacity = "1";
+},100);
 
 },5000);
 

@@ -90,7 +90,7 @@ text-align:center;
 <div class="stars"></div>
 
 <!-- 🌹 CANVAS ROSA -->
-<canvas id="roseCanvas"></canvas>
+<!--<canvas id="roseCanvas"></canvas> -->
 
 <div class="content">
 
@@ -106,12 +106,13 @@ I just found one later - you.
 <div id="message">
 
 <span style="font-family:'Times New Roman', serif; font-size:60px;">
-♡ Happy Birthday Anahí 💫💐✨
+♡ Happy Birthday Anahí 💫✨
 </span>
 
 <br><br>
 
 <button id="secretBtn" onclick="secretMessage()">
+
 🌹 Secret Message
 </button>
 
@@ -131,14 +132,26 @@ Feliz cumpleaños, Anahí 💖
 
 <script>
 
+function showFlower(){
+
+const flower = document.getElementById("magicFlower");
+
+flower.style.display = "block";
+
+setTimeout(()=>{
+flower.style.opacity = "1";
+},100);
+
+}
+
 /* =========================
 🌹 ROSA
 ========================= */
-const roseCanvas = document.getElementById("roseCanvas");
-const rctx = roseCanvas.getContext("2d");
+/*const roseCanvas = document.getElementById("roseCanvas");*/
+/*const rctx = roseCanvas.getContext("2d");*/
 
-roseCanvas.width = window.innerWidth;
-roseCanvas.height = window.innerHeight;
+/*roseCanvas.width = window.innerWidth;*/
+/*roseCanvas.height = window.innerHeight;*/
 
 function drawRose(){
 
@@ -272,7 +285,7 @@ document.getElementById("secretText").style.display = "block";
 
 document.getElementById("secretBtn").style.display = "none";
 
-setTimeout(drawRose, 6000);
+sesetTimeout(showFlower, 6000);
 for(let i=0;i<80;i++){
 setTimeout(createPetal,i*120);
 }
@@ -286,6 +299,22 @@ alert("Wrong password 🌹");
 }
 
 </script>
+    
+<img id="magicFlower"
+src="flower1.png"
+style="
+display:none;
+position:fixed;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:350px;
+opacity:0;
+z-index:1;
+pointer-events:none;
+transition:opacity 4s ease;
+">
+
 
 </body>
 </html>

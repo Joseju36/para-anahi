@@ -183,16 +183,20 @@ document.getElementById("birthdayTitle");
 
 title.style.position = "fixed";
 title.style.left = "50%";
-title.style.top = "28%";
 title.style.transform = "translateX(-50%)";
 title.style.zIndex = "999";
-title.style.transition = "top 4s linear";
 
-setTimeout(()=>{
-
-title.style.top = "14%";
-
-},100);
+title.animate(
+[
+  { top: "28%" },
+  { top: "10%" }
+],
+{
+  duration: 5000,
+  easing: "linear",
+  fill: "forwards"
+}
+);
     
     const flowerText =
 document.getElementById("flowerText");

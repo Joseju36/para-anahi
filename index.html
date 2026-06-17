@@ -206,7 +206,25 @@ flowerText.style.display = "block";
 setTimeout(()=>{
 flowerText.style.opacity = "1";
 },100);
+setTimeout(()=>{
 
+document.getElementById("birthdayTitle").style.opacity = "0";
+
+document.getElementById("flowerText").style.opacity = "0";
+
+document.getElementById("magicFlower").style.opacity = "0";
+
+setTimeout(()=>{
+
+document.getElementById("finalImage").style.display = "block";
+
+setTimeout(()=>{
+document.getElementById("finalImage").style.opacity = "1";
+},100);
+
+},4000);
+
+},10000);
 },3000);
 
 }
@@ -410,6 +428,20 @@ and for being one of the most wonderful coincidences life gave me. 💐✨
 <audio id="music" loop>
 <source src="ytmp3free.cc_i-wanna-be-yours-youtubemp3free.org.mp3"audio/mpeg">
 </audio>
+<img id="finalImage"
+src="IMG_0907.png"
+style="
+display:none;
+position:fixed;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+max-width:80%;
+max-height:80%;
+opacity:0;
+z-index:9999;
+transition:opacity 4s ease;
+">
     
 </body>
 </html>

@@ -173,28 +173,13 @@ secret.style.display = "none";
 
 /* Subir Happy Birthday */
 const title =
-
 document.getElementById("birthdayTitle");
 
-title.animate(
-
-[
-
-{ transform: "translateY(0px)" },
-
-{ transform: "translateY(-70px)" }
-
-],
-
-{
-
-duration: 4000,
-
-fill: "forwards"
-
-}
-
-);
+title.style.position = "fixed";
+title.style.left = "50%";
+title.style.top = "18%";
+title.style.transform = "translateX(-50%)";
+title.style.zIndex = "999";
     
     const flowerText =
 document.getElementById("flowerText");

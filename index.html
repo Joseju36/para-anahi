@@ -125,9 +125,11 @@ white-space:nowrap;
 
 <div id="secretText"
 style="
-display:none;
+visibility:hidden;
+opacity:0;
 margin-top:20px;
 transition:opacity 2s ease;
+min-height:120px;
 ">
 
 Ya te lo había dicho antes...<br><br>
@@ -339,10 +341,11 @@ const password = prompt("Enter password");
 
 if(password === "Mushu"){
 
-document.getElementById("secretText").style.display = "block";
-
-document.getElementById("secretBtn").style.display = "none";
-
+document.getElementById("secretText").style.visibility = "visible";
+document.getElementById("secretText").style.opacity = "1";
+    
+document.getElementById("secretBtn").style.visibility = "hidden";
+    
 setTimeout(showFlower, 6000);
 for(let i=0;i<80;i++){
 setTimeout(createPetal,i*120);

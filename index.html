@@ -177,9 +177,16 @@ document.getElementById("birthdayTitle");
 
 title.style.position = "fixed";
 title.style.left = "50%";
-title.style.top = "18%";
+title.style.top = "28%";
 title.style.transform = "translateX(-50%)";
 title.style.zIndex = "999";
+title.style.transition = "top 4s linear";
+
+setTimeout(()=>{
+
+title.style.top = "14%";
+
+},100);
     
     const flowerText =
 document.getElementById("flowerText");
@@ -190,7 +197,7 @@ setTimeout(()=>{
 flowerText.style.opacity = "1";
 },100);
 
-},5000);
+},4000);
 
 }
 

@@ -78,6 +78,74 @@ opacity:0.8;
 50%{opacity:1;}
 100%{opacity:0.3;}
 }
+#moon{
+animation: moonGlow 4s ease-in-out infinite;
+position:fixed;
+top:70px;
+right:80px;
+
+width:200px;
+height:200px;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle at 35% 35%,
+#ffffff 0%,
+#f8f8f8 20%,
+#e6e6e6 60%,
+#bdbdbd 100%);
+
+box-shadow:
+0 0 30px #ffffff,
+0 0 60px rgba(255,255,255,0.8),
+0 0 100px rgba(255,255,255,0.4);
+
+z-index:1;
+}
+
+#moon::before{
+content:"";
+
+position:absolute;
+
+top:20px;
+left:35px;
+
+width:18px;
+height:18px;
+
+border-radius:50%;
+
+background:rgba(180,180,180,0.5);
+
+box-shadow:
+35px 25px 0 rgba(180,180,180,0.4),
+-10px 50px 0 rgba(180,180,180,0.35),
+45px 60px 0 rgba(180,180,180,0.25),
+70px 30px 0 rgba(180,180,180,0.3);
+}    
+    @keyframes moonGlow{
+
+0%{
+box-shadow:
+0 0 30px #ffffff,
+0 0 60px rgba(255,255,255,0.8);
+}
+
+50%{
+box-shadow:
+0 0 50px #ffffff,
+0 0 90px rgba(255,255,255,0.9);
+}
+
+100%{
+box-shadow:
+0 0 30px #ffffff,
+0 0 60px rgba(255,255,255,0.8);
+}
+
+}
 .content{
 position:relative;
 z-index:2;
@@ -477,6 +545,6 @@ z-index:9999;
 transition:opacity 4s ease;
 ">
  <div id="moon"></div>
-
+<div id="moon"></div>
 </body>
 </html>

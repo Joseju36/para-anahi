@@ -104,45 +104,47 @@ box-shadow:
 z-index:1;
 }
 
-#moon::before{
-content:"";
+#moon{
+position:fixed;
+top:70px;
+right:80px;
 
-position:absolute;
-
-top:20px;
-left:35px;
-
-width:18px;
-height:18px;
+width:180px;
+height:180px;
 
 border-radius:50%;
 
-background:rgba(180,180,180,0.5);
+background:radial-gradient(
+circle at 30% 30%,
+#ffffff,
+#f5f5f5 40%,
+#d9d9d9 100%
+);
 
 box-shadow:
-35px 25px 0 rgba(180,180,180,0.4),
--10px 50px 0 rgba(180,180,180,0.35),
-45px 60px 0 rgba(180,180,180,0.25),
-70px 30px 0 rgba(180,180,180,0.3);
-}    
-    @keyframes moonGlow{
+0 0 40px rgba(255,255,255,0.9),
+0 0 80px rgba(255,255,255,0.6),
+0 0 120px rgba(255,255,255,0.3);
 
-0%{
+animation: moonGlow 5s ease-in-out infinite;
+
+z-index:1;
+}
+
+@keyframes moonGlow{
+
+0%,100%{
+transform:scale(1);
 box-shadow:
-0 0 30px #ffffff,
-0 0 60px rgba(255,255,255,0.8);
+0 0 40px rgba(255,255,255,0.9),
+0 0 80px rgba(255,255,255,0.6);
 }
 
 50%{
+transform:scale(1.03);
 box-shadow:
-0 0 50px #ffffff,
-0 0 90px rgba(255,255,255,0.9);
-}
-
-100%{
-box-shadow:
-0 0 30px #ffffff,
-0 0 60px rgba(255,255,255,0.8);
+0 0 60px rgba(255,255,255,1),
+0 0 120px rgba(255,255,255,0.8);
 }
 
 }
